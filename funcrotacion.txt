@@ -1,0 +1,30 @@
+arrjuan := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	k := 4
+	s := 0
+
+	for t := len(arrjuan) - k; t > 0; t-- {
+		s = arrjuan[len(arrjuan)-1]
+		for j := len(arrjuan) - 1; j > 0; j-- {
+
+			arrjuan[j] = arrjuan[j-1]
+
+		}
+		arrjuan[0] = s
+
+	}
+	fmt.Println("Chupala Juan tal vez", arrjuan)
+
+	var slice1 []int
+	var slice2 []int
+	var slice3 []int
+	slice2 = append(slice2, arrjuan[k:cap(arrjuan)]...)
+	slice1 = append(slice1, arrjuan[:k]...)
+	slice3 = append(slice3, arrjuan[k:cap(arrjuan)]...)
+	slice3 = append(slice3, arrjuan[:k]...)
+	fmt.Println("Mira Juan", slice3)*/
+
+	
+	arrjuan = append(arrjuan, arrjuan[k:cap(arrjuan)]...)
+	arrjuan = append(arrjuan, arrjuan[:k]...)
+	arrjuan = arrjuan[s:]
+	fmt.Println("Chupala Juan", arrjuan)
