@@ -15,7 +15,7 @@ func main() {
 func prueba() {
 
 }
-
+// NAamas para checar Git vamos a seguir modificando a ver que onda/ 
 func binary_global() {
 	var counter int
 	num := 0

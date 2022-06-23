@@ -27,4 +27,4 @@ arrjuan := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	arrjuan = append(arrjuan, arrjuan[k:cap(arrjuan)]...)
 	arrjuan = append(arrjuan, arrjuan[:k]...)
 	arrjuan = arrjuan[s:]
-	fmt.Println("Chupala Juan", arrjuan)
+	fmt.Println("Chupala Juan x2", arrjuan)
