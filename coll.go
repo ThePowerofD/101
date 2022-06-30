@@ -4,18 +4,144 @@ import (
 	"fmt"
 	"math/rand"
 	"sort"
+
+	"strconv"
 	"strings"
 )
-
-func main() {
-	binary_global()
-
-}
 
 func prueba() {
 
 }
 
+func two_one() {
+	master := []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
+	a := "xyaabbbccccdefww"
+	b := "xxxxyyyyabklmopq"
+	var new []string
+	var str string
+	fmt.Println("Master", len(master))
+
+	fmt.Println("a", len(a))
+	fmt.Println("b", len(b))
+
+	//aqui se iguala el length del string
+	if len(a) > len(b) {
+		for i := len(a) - len(b); i != 0; i-- {
+			b = b + string(b[1])
+		}
+	} else if len(a) < len(b) {
+		for i := len(b) - len(a); i != 0; i-- {
+			a = a + string(a[1])
+		}
+	}
+	// Aqui se empieza a hacer el String combinado y nuevo
+	for i := 0; i < (len(master) - 1); i++ {
+
+		for j := 0; j < len(a)-1; j++ {
+
+			if master[i] == string(a[j]) {
+
+				new = append(new, master[i])
+				break
+
+			} else if master[i] == string(b[j]) {
+
+				new = append(new, master[i])
+				break
+
+			}
+		}
+	}
+
+	for i := 0; i < len(new); i++ {
+		str = str + new[i]
+	}
+	fmt.Println(str)
+
+}
+func parity_outlier() {
+	arr := []int{2, 4, 0, 100, 11, 2602, 36}
+	//arr := []int{160, 3, 1719, 19, 11, 13, 21}
+	var evencount, oddcount, ans, s int
+	//fmt.Println(0 % 2)
+	for i := 0; i < 3; i++ {
+		//fmt.Println("num", (arr[i]))
+
+		//fmt.Println("arr%", (arr[i])%2)
+		s = arr[i]
+		if s%2 == 0 {
+			evencount = evencount + 1
+		} else if s%2 == 1 {
+			oddcount = oddcount + 1
+		}
+	}
+	fmt.Println("even", evencount, "odd:", oddcount)
+
+	if evencount > oddcount {
+		for i := 0; i < len(arr); i++ {
+			ans = arr[i]
+			if ans%2 == 1 {
+				fmt.Println("the only odd number is:", ans)
+				break
+			}
+		}
+	} else if oddcount > evencount {
+		for i := 0; i < len(arr); i++ {
+			ans = arr[i]
+			if ans%2 == 0 {
+				fmt.Println("the only even number is:", ans)
+				break
+			}
+		}
+	}
+}
+
+func bianry_rec(n int) string {
+	if n != 1 && n != 0 {
+		t := n / 2
+		return bianry_rec(t) + strconv.Itoa(n%2)
+	} else if n == 1 {
+		return "1"
+
+	} else if n == 0 {
+		return "0"
+	} else {
+		return "juan es puto"
+	}
+
+}
+
+func dictionary() {
+	var mp map[string]string = map[string]string{
+		"Mexico":               "CDMX",
+		"Argentina":            "Buenos Aires",
+		"Bolivia":              "Sucre",
+		"Brasil":               "Brasilia",
+		"Chile":                "Santiago de Chile",
+		"Colombia":             "Bogota",
+		"Costa Rica":           "San Jose",
+		"Cuba":                 "La Habana",
+		"Ecuador":              "Quito",
+		"El Salvador":          "San Salvador",
+		"Guatemala":            "Ciudad de Guatemala",
+		"Haiti":                "Purto Principe",
+		"Honduras":             "tengucigalpa",
+		"Nicaragua":            "Mangua",
+		"Pamama":               "Panama",
+		"Paraguay":             "Asuncion",
+		"Peru":                 "Lima",
+		"Puerto Rico":          "San Juan",
+		"Republica Dominicana": "Santo Domingo",
+		"Uruguay":              "Montevideo",
+		"Venezuela":            "Caracas",
+	}
+
+	var x string
+	fmt.Println("Escribe el nombre del Pais Latinoamericano Mayuscuals correspondientes sin acentos.")
+	fmt.Scan(&x)
+	fmt.Println("La Capital es", mp[x])
+
+}
 func binary_global() {
 	var counter int
 	num := 0
